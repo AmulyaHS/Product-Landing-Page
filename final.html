@@ -1,0 +1,658 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+    <meta charset="UTF-8"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <meta name="viewport" content= 
+        "width=device-width, initial-scale=1.0"> 
+    <link rel="stylesheet">
+    <style>
+        
+* { 
+    padding: 0; 
+    margin: 0; 
+    box-sizing: border-box; 
+} 
+  
+body { 
+    background-color: white; 
+    color: black; 
+    font-family: "Fira Sans", sans-serif; 
+    background-color: white; 
+} 
+  
+nav { 
+    width: 100%; 
+    height: 80px; 
+    display: flex; 
+    justify-content: space-between; 
+    padding: 20px 5%; 
+    background-color: #8cc099; 
+} 
+  
+nav .heading { 
+    font-size: 30px; 
+    font-weight: 700; 
+    color: white; 
+} 
+  
+nav ul { 
+    display: flex; 
+    list-style: none; 
+} 
+  
+nav ul li { 
+    padding: 8px 15px; 
+    border-radius: 10px; 
+    transition: 0.2s ease-in; 
+} 
+  
+nav ul li a { 
+    color: black; 
+    font-size: 20px; 
+    font-weight: 500; 
+    text-decoration: none; 
+    color: white; 
+} 
+  
+nav ul li:hover { 
+    background-color: green; 
+} 
+  
+nav ul li a:hover { 
+    color: white; 
+} 
+  
+nav .sideMenuButton { 
+    font-size: 30px; 
+    font-weight: bolder; 
+    cursor: pointer; 
+    display: none; 
+} 
+  
+/* responsive navbar css */
+@media screen and (max-width: 600px) { 
+    nav .sideMenuButton { 
+        display: flex; 
+    } 
+  
+    nav .navbar { 
+        display: none; 
+    } 
+  
+    .sideNavigationBar { 
+        display: block !important; 
+    } 
+} 
+  
+.sideNavigationBar { 
+    height: 100%; 
+    position: fixed; 
+    top: 0; 
+    right: 0%; 
+    background-color: green; 
+    overflow-x: hidden; 
+    transition: 0.3s ease-in; 
+    padding-top: 60px; 
+    display: none; 
+} 
+  
+.sideNavigationBar a { 
+    padding: 8px 8px 8px 40px; 
+    display: block; 
+    font-size: 25px; 
+    font-weight: 500; 
+    color: #d1d1d1; 
+    transition: 0.3s; 
+    text-decoration: none; 
+} 
+  
+.sideNavigationBar a button { 
+    padding: 10px 20px; 
+    border-radius: 10px; 
+    color: green; 
+    font-size: 16px; 
+    border-style: none; 
+    font-weight: 700; 
+} 
+  
+.sideNavigationBar a:hover { 
+    color: white; 
+} 
+  
+.sideNavigationBar .closeButton { 
+    position: absolute; 
+    top: 10px; 
+    right: 25px; 
+    font-size: 20px; 
+    margin-left: 50px; 
+} 
+  
+.line { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin: 2% 5%; 
+} 
+  
+.line .side1 { 
+    padding-right: 50px; 
+} 
+  
+.side1 h1 { 
+    font-size: 60px; 
+    margin-bottom: 10px; 
+    color: green; 
+} 
+  
+.side1 button { 
+    width: 200px; 
+    padding: 12px 20px; 
+    border-radius: 20px; 
+    border-style: none; 
+    color: black; 
+    font-size: 17px; 
+    font-weight: 600; 
+} 
+  
+a { 
+    text-decoration: none; 
+    color: black; 
+} 
+
+/* Header content responsive */
+@media screen and (max-width: 980px) { 
+    .side2 img { 
+        width: 350px; 
+    } 
+  
+    .side1 h1 { 
+        font-size: 40px; 
+    } 
+  
+    .side1 p { 
+        font-size: 17px; 
+    } 
+  
+    .line { 
+        margin-top: 80px; 
+    } 
+} 
+  
+@media screen and (max-width: 600px) { 
+    .side1 h1 { 
+        font-size: 35px; 
+    } 
+  
+    .line { 
+        flex-direction: column; 
+    } 
+  
+    .line .side1 { 
+        padding: 30px; 
+    } 
+} 
+  
+/* section */
+  
+section .topic a { 
+    font-size: 25px; 
+    font-weight: 500; 
+    margin-bottom: 10px; 
+} 
+  
+.about .boxes { 
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: space-between; 
+} 
+  
+.about .boxes .box { 
+    margin: 10px 20px; 
+    max-width: calc(100% / 3 - 50px); 
+    text-align: center; 
+    border-radius: 12px; 
+    padding: 30px 10px; 
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12); 
+    cursor: default; 
+} 
+  
+/* Contact Page  */
+  
+.contact { 
+    padding: 20px; 
+} 
+  
+.contact .content { 
+    margin: 0 auto; 
+    padding: 30px 0; 
+} 
+  
+.content .title { 
+    width: 80%; 
+    text-align: center; 
+    font-weight: bolder; 
+    font-size: 40px; 
+} 
+  
+.title { 
+    margin-bottom: 30px; 
+    margin-left: 80px; 
+} 
+  
+.contactMenu { 
+    display: flex; 
+    justify-content: space-evenly; 
+} 
+  
+.input2 { 
+    margin-top: 10; 
+} 
+  
+.label1 { 
+    font-size: 18px; 
+    margin-top: 8px; 
+    margin-bottom: 8px; 
+    font-weight: bolder; 
+} 
+  
+.contactMenu .input1 input { 
+    border-radius: 13px; 
+    padding: 6px; 
+} 
+  
+.input2 input { 
+    border-color: rgb(252, 244, 244); 
+    width: 400px; 
+} 
+  
+.button { 
+    margin-top: 12px; 
+    margin-left: 5px; 
+} 
+  
+.button button { 
+    width: 162px; 
+    height: 35px; 
+    border-radius: 12px; 
+    border-color: transparent; 
+} 
+  
+.button button:hover { 
+    background-color: #8cc099; 
+} 
+  
+button { 
+    width: 162px; 
+    height: 35px; 
+    border-radius: 12px; 
+    border-color: transparent; 
+} 
+  
+button:hover { 
+    background-color: #8cc099; 
+} 
+  
+.rightside1 { 
+    display: flex; 
+    flex-direction: column; 
+    margin-left: 300px; 
+} 
+  
+.title1 { 
+    font-size: 18px; 
+    margin-top: 8px; 
+    margin-bottom: 5px; 
+    font-weight: bolder; 
+} 
+  
+.content1 { 
+    width: 450px; 
+    margin-top: 2px; 
+    color: grey; 
+} 
+  
+/* Footer */
+footer { 
+    background: var(--primary-color); 
+    padding: 15px 0; 
+    text-align: center; 
+    font-family: "Poppins", sans-serif; 
+} 
+  
+footer .footer span { 
+    font-size: 17px; 
+    font-weight: 400; 
+    color: var(--white-color); 
+} 
+  
+footer .footer span a { 
+    font-weight: 500; 
+    color: var(--white-color); 
+} 
+  
+footer .footer span a:hover { 
+    text-decoration: underline; 
+} 
+  
+@media screen and (max-width: 1060px) { 
+    .contactMenu { 
+        flex-direction: column; 
+        align-items: center; 
+    } 
+  
+    .rightside1 { 
+        display: flex; 
+        flex-direction: column; 
+        margin-left: 0px; 
+    } 
+  
+    .content1 { 
+        width: 100%; 
+        margin-top: 2px; 
+        color: grey; 
+    } 
+  
+    .side2 img { 
+        width: 95%; 
+        height: 90%; 
+    } 
+} 
+  
+@media screen and (max-width: 600px) { 
+    .side2 img { 
+        width: 100%; 
+    } 
+  
+    section .topic a { 
+        font-size: 20px; 
+    } 
+  
+    section .topic p { 
+        font-size: 5px; 
+    } 
+  
+    .about .boxes { 
+        display: flex; 
+        flex-direction: column; 
+        align-items: center; 
+    } 
+  
+    .about .boxes .box { 
+        max-width: 70%; 
+    } 
+}
+* {
+  box-sizing: border-box;
+}
+
+.row {
+  display: flex;
+}
+
+/* Create three equal columns that sits next to each other */
+.column {
+  flex: 33.33%;
+  padding: 5px;
+}
+    </style> 
+    <title>Landing Page</title> 
+</head> 
+
+<body> 
+    <nav> 
+        <div class="heading">Product: SUNGLASSES</div> 
+        <span class="sideMenuButton"
+            onclick="openNavbar()"> 
+            ☰ 
+        </span> 
+
+        <div class="navbar"> 
+            <ul> 
+            <li><a href="#Home">Home</a></li> 
+                <li><a href="#">About</a></li> 
+                <li><a href="#">Types</a></li> 
+            <li><a href="#">Images</a></li> 
+                <li><a href="#">Sign Up</a></li> 
+            </ul> 
+        </div> 
+    </nav> 
+
+    <!-- Side navigation bar for 
+        responsive website -->
+    <div class="sideNavigationBar"
+        id="sideNavigationBar"> 
+        <a href="#" class="closeButton"
+            onclick="closeNavbar()"> 
+             
+        </a> 
+        <a href="#">Home</a> 
+        <a href="#">About</a> 
+        <a href="#">Sign Up</a> 
+    </div> 
+
+    <!-- Content -->
+    <div class="line" id="Home"> 
+        <div class="side1"> 
+            <h1>SUNGLASS</h1> 
+            <button> 
+                <a href= 
+"https://www.geeksforgeeks.org/"> 
+                    Explore More 
+                </a> 
+            </button> 
+        </div> 
+        <div class="side2"> 
+            <img src= 
+"SG1.webp"
+                width="500"> 
+        </div> 
+    </div> 
+
+ <div class="content"> 
+            <div class="title"> 
+                <span>ABOUT</span> 
+            </div> 
+            <p>Sunglasses or sun glasses (informally called shades or sunnies; more names below) are a form of protective eyewear designed primarily to prevent bright sunlight and high-energy visible light from damaging or discomforting the eyes. They can sometimes also function as a visual aid, as variously termed spectacles or glasses exist, featuring lenses that are colored, polarized or darkened. In the early 20th century, they were also known as sun cheaters (cheaters then being an American slang term for glasses).</p>
+      <button class="btn btn-default btn-lg">Get in Touch</button>
+
+    <section class="about" id="My Projects"> 
+        <div class="content"> 
+            <div class="title"> 
+                <span>TYPES</span> 
+            </div> 
+            <div class="boxes"> 
+                <div class="box"> 
+                    <div class="topic"> 
+                        <a href="" target="_blank"> 
+                           SQUARE SUNGLASSES 
+                        </a> 
+                    </div> 
+                    <p> 
+                       Square sunglasses are a classic shape that never go out of style. Take it from Vogue editor, Anna Wintour, who is known for her dark, square frames, which she rocks to almost every fashion show she attends. 
+
+A softer cousin of the rectangular frame, square sunglasses boast box-shaped lenses that suit almost all face shapes. This style meshes particularly well with round faces, as they add angles and structure. 
+                    </p> 
+                </div> 
+                <div class="box"> 
+
+                    <div class="topic"> 
+                        <a href="" target="_blank"> 
+                           ROUND SUNGLASSES 
+                        </a> 
+                    </div> 
+                    <p> 
+                        Round sunglasses may have been popularized by rockstars like John Lennon and Jimi Hendrix, but this style is far more versatile than its origins suggest.
+
+You can play up the bohemian vibe with thin, round frames or opt for a more modern look with a thicker outline.  
+
+Round shades help balance out natural facial angles, making them ideal for those with strong jawlines or a square face shape.
+                    </p> 
+                </div> 
+ <div class="box"> 
+                    <div class="topic"> 
+                        <a href="" target="_blank"> 
+                           CLUBMASTER/BROWLINE SUNGLASSES 
+                        </a> 
+                    </div> 
+                    <p> 
+                       The popularity of the clubmaster style (a type of browline sunglasses) surged in the 1980s thanks to Bruce Willis sporting a pair on the TV show Moonlighting. The popular retro frame had another resurgence in recent years due to being featured in the TV series Mad Men. 
+
+Clubmasters are defined by angular wayfarer-like styling on the upper rim of the sunglasses and a rimless (or thin metal rim) portion on the bottom half of the frame. They work well with many face shapes, including oval, round, square, and diamond. 
+                    </p> 
+                </div> 
+<div class="box"> 
+
+                    <div class="topic"> 
+                        <a href="" target="_blank"> 
+                          AVIATOR SUNGLASSES 
+                        </a> 
+                    </div> 
+                    <p> 
+                        Developed in the 1930s for fighter pilots to protect their eyes while flying, aviators are easily one of the most recognizable styles of sunglasses since they were popularized in 1970s.
+
+With their wide teardrop lenses, flat browline, and double bridge, this style has seamlessly made the crossover from a functional safety item to a fashion must-have. 
+
+Aviators, which often pair colorful, tinted lenses with a sleek, metal frame, are ideal for oval, square, and diamond face shapes. 
+                    </p> 
+                </div>
+                <div class="box"> 
+                    <div class="topic"> 
+                        <a href="" target="_blank"> 
+                            CAT EYE SUNGLASSES 
+                        </a> 
+                    </div> 
+                    <p> 
+                        Distinguished by softly rounded lenses and upswept temples, cat eye sunglasses were originally made famous in the ’50s by stars like Marilyn Monroe and Audrey Hepburn.
+
+Ranging from thick and bold to thin and delicate, cat-eye shades (sometimes referred to as butterfly sunglasses) add refinement, playfulness, and a touch of Hollywood glam to any outfit.  
+
+This style complements a wide range of face shapes, including square, round, oval, and heart-shaped.
+                    </p> 
+                </div> 
+            </div> 
+        </div> 
+    </section> 
+    <\n>
+<div class="content"> 
+            <div class="title"> 
+                <span>IMAGES</span> 
+            </div> 
+ <div class="row">
+  <div class="column">
+    <img src="glass1.jpg" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="glass4.jpg"  style="width:100%">
+  </div>
+  <div class="column">
+    <img src="glass3.webp"  style="width:100%">
+  </div>
+   <div class="column">
+    <img src="glass5.jpg"  style="width:100%">
+  </div>
+   <div class="column">
+    <img src="glass6.webp"  style="width:100%">
+  </div>
+   <div class="column">
+    <img src="glass7.jpg"  style="width:100%">
+  </div>
+</div>
+
+
+    <section class="contact" id="contact"> 
+        <div class="content"> 
+            <div class="title"><span>Sign Up</span></div> 
+            <div class="contactMenu"> 
+                <div class="input1"> 
+                    <div class="label1">Your Name</div> 
+                    <div class="input2"> 
+                        <input type="text"
+                            placeholder="Enter your Name here"> 
+                    </div> 
+                    <div class="label1"> 
+                        <label>Your Email</label> 
+                    </div> 
+                    <div class="input2"> 
+                        <input type="text"
+                            placeholder="Enter your Email here"> 
+                    </div> 
+                    <div class="label1"> 
+                        <label>Your Password</label> 
+                    </div> 
+                    <div class="input2"> 
+                        <input type="text"
+                            placeholder="Enter your Password here"> 
+                    </div> 
+                    <div class="button"> 
+                        <button>Sign Up</button> 
+                    </div> 
+                </div> 
+                <div class="input3"> 
+                    <div class="rightside1"> 
+                        <div class="title1"> 
+                            <span> 
+                                Contact Us 
+                            </span> 
+                        </div> 
+                        <div class="content1"> 
+                            A-143, 9th Floor, Sovereign 
+                            Corporate Tower, Sector-136, 
+                            Banglore, Karnatka - 5600><\n> 
+<p>Email:<a href="mailto:amu@example.com">amu@gmail.com</a></p>
+<p>Phone No:+91 9806370930</a></p>
+                        </div> 
+                        <div class="title1"> 
+                            <span>More Information</span> 
+                        </div> 
+                        <div class="content1"> 
+                            The single most important reason to wear sunglasses is to protect your eyes from the sun’s ultraviolet (UV) rays. Long-term exposure to UV rays has been linked to the development of serious eye issues, including macular degeneration and cataracts.
+
+Protecting your eyes from the sun’s damaging rays is essential. To do so, wear sunglasses that block nearly 100% of UV rays (also called UV 400 protection) when you are outside during the day. Even when the skies are cloudy, wear sunglasses as a precaution. You can’t depend on the clouds to stop the UV rays from getting through.
+                        </div> 
+                    </div> 
+                </div> 
+            </div> 
+        </div> 
+    </section> 
+     <div id="embedmap-canvas" style="height:100%; width:100%;max-width:100%;">
+                            <iframe style="height:100%;width:100%;border:0;" frameborder="0" src="https://www.google.com/maps/embed/v1/place?q=banglore&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8">
+                            </iframe>
+                        </div>
+    <!-- Footer section -->
+    <footer id="footer">
+        <div class="container-fluid">
+            <!-- social media icons -->
+            <div class="social-icons mt-4">
+                <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.twitch.tv/" target="_blank"><i class="fab fa-twitch"></i></a>
+            </div>
+        </div>
+    
+        <div class="footer"> 
+            <span> 
+                Created By 
+                <a href="https://www.geeksforgeeks.org/"
+                    target="_blank"> 
+                    AMULYA
+                </a> 
+            </span> 
+        </div> 
+    </footer> 
+    <script>
+        function openNavbar() { 
+    document.getElementById("sideNavigationBar") 
+        .style.width = "50%"; 
+} 
+function closeNavbar() { 
+    document.getElementById("sideNavigationBar") 
+        .style.width = "0%"; 
+}
+    </script> 
+</body> 
+
+</html>
